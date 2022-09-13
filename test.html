@@ -1,0 +1,16 @@
+<html>
+  <body>
+    Hello
+    <script>
+      let url = "https://dummy.restapiexample.com/api/v1/employees";
+      fetch(url)
+        .then(function (res) {
+          console.log(res);
+          return res.json();
+        })
+        .then(function (data) {
+          console.log(data);
+        });
+    </script>
+  </body>
+</html>
