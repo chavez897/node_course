@@ -1,0 +1,47 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>ISBN</th>
+    <th>Page Count</th>
+    <th>Publish Date</th>
+    <th>Thumbnail URL</th>
+    <th>Short Description</th>
+    <th>Long Description</th>
+    <th>Status</th>
+    <th>Authors</th>
+    <th>Categories</th>
+  </tr>
+  {{#each books}}
+    {{#if this.pageCount}}
+      <tr>
+        <td>{{this._id}}</td>
+        <td>{{this.title}}</td>
+        <td>{{this.isbn}}</td>
+        <td>{{this.pageCount}}</td>
+        <td>{{this.publishedDate.$date}}</td>
+        <td>{{this.thumbnailUrl}}</td>
+        <td class="description">{{this.shortDescription}}</td>
+        <td class="description">{{this.longDescription}}</td>
+        <td>{{this.status}}</td>
+        <td>{{this.authors}}</td>
+        <td>{{this.categories}}</td>
+      </tr>
+    {{/if}}
+    {{#unless this.pageCount}}
+      <tr style="background-color: #aeaeae;">
+        <td>{{this._id}}</td>
+        <td>{{this.title}}</td>
+        <td>{{this.isbn}}</td>
+        <td>{{zero this.pageCount}}</td>
+        <td>{{this.publishedDate.$date}}</td>
+        <td>{{this.thumbnailUrl}}</td>
+        <td class="description">{{this.shortDescription}}</td>
+        <td class="description">{{this.longDescription}}</td>
+        <td>{{this.status}}</td>
+        <td>{{this.authors}}</td>
+        <td>{{this.categories}}</td>
+      </tr>
+    {{/unless}}
+  {{/each}}
+</table>

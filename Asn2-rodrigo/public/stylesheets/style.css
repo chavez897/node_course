@@ -1,0 +1,65 @@
+body {
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+/* Style the header with a grey background and some padding */
+.header {
+  background-color: #0074ff;
+  padding: 20px 10px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 10px;
+  background-color: #0074ff;
+  color: white;
+  text-align: center;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+table {
+  width: 100%;
+}
+.description {
+  max-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.column1 {
+  float: left;
+  width: 15%;
+}
+
+.column2 {
+  float: left;
+  width: 80%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.titleBar {
+  height: 100%;
+  display: flex;
+  align-items: center; /* Vertical center alignment */
+  justify-content: center;
+}

@@ -12,6 +12,11 @@ app.post(
   (req, res) => {
     // Handle the request somehow
     console.log(req.body);
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+
+      return res.status(400).send({ errors: errors.array() });
+    }
     res.send("done");
   }
 );
@@ -34,9 +39,9 @@ app.post(
 
 app.post(
   "/comment",
-  (req, res, next) => {
-    check("email").isEmail().run(req);
-    check("password").isLength({ min: 6 }).run(req);
+  async (req, res, next) => {
+    await check("email").isEmail().run(req);
+    await check("password").isLength({ min: 6 }).run(req);
     const result = validationResult(req);
     if (!result.isEmpty()) {
       return res.status(400).json({ errors: result.array() });

@@ -1,0 +1,82 @@
+<html>
+  <head> <title> View Data </title> </head>
+  <body>
+    <p>Sample helper: {{sample}}</p>
+    <p>Calculation helper: {{calculation 10}}</p>
+    <p>Strong helper: {{#strong}} {{data.2.name}} {{/strong}}</p>
+    <h3>First Name: {{data.0.name}}</h3>
+    <h1>List</h1>
+    <table border="1">
+      <tr>
+        <th> Name </th>
+        <th> Age </th>
+        <th> Occupation </th>
+        <th>
+          Company
+        </th>
+      </tr>
+      {{#each data}}
+        <tr>
+          <td>
+            {{this.name}}
+          </td>
+          <td> {{this.age}}</td>
+          <td>
+            {{this.occupation}}
+          </td>
+          <td> {{this.company}} </td>
+        </tr>
+      {{/each}}
+    </table>
+    <h1>Managers</h1>
+    <table border="1">
+      <tr>
+        <th> Name </th>
+        <th> Age </th>
+        <th> Occupation </th>
+        <th>
+          Company
+        </th>
+      </tr>
+      {{#each data}}
+        {{#if this.manager}}
+          <tr>
+            <td>
+              {{this.name}}
+            </td>
+            <td> {{this.age}}</td>
+            <td>
+              {{this.occupation}}
+            </td>
+            <td> {{this.company}} </td>
+          </tr>
+        {{/if}}
+      {{/each}}
+    </table>
+    <h1>Not Managers</h1>
+    <table border="1">
+      <tr>
+        <th> Name </th>
+        <th> Age </th>
+        <th> Occupation </th>
+        <th>
+          Company
+        </th>
+      </tr>
+      {{#each data}}
+        {{#unless this.manager}}
+          <tr>
+            <td>
+              {{this.name}}
+            </td>
+            <td> {{this.age}}</td>
+            <td>
+              {{this.occupation}}
+            </td>
+            <td> {{this.company}} </td>
+          </tr>
+        {{/unless}}
+      {{/each}}
+    </table>
+  </body>
+</html>
